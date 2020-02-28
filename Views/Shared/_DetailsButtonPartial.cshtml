@@ -1,0 +1,27 @@
+﻿@model EmpManager.Entities.SmallButtonModel
+@using EmpManager.Entities
+
+@Html.Partial("_SmallButtonPartial",
+       new SmallButtonModel
+       {
+           Action = "Details",
+           ButtonType = "btn-primary",
+           Glyph = "eye",
+           Text = "Details",
+           Id = Model.Id,
+          AttendanceID = Model.AttendanceID,
+                  ClientID = Model.ClientID,
+                  DepartmentID = Model.DepartmentID,
+                  DesignationID = Model.DesignationID,
+                  EmployeeID = Model.EmployeeID,
+                  EmpSalaryID = Model.EmpSalaryID,
+                  HolidayID = Model.HolidayID,
+                  LeadID = Model.LeadID,
+                  LeaveID = Model.LeaveID,
+                  LeaveTypeID = Model.LeaveTypeID,
+                  PayrollID = Model.PayrollID,
+                  SettingID = Model.SettingID,
+                   TerminationId = Model.TerminationId,
+                   ThemeSettingID = Model.ThemeSettingID,
+                   TicketID = Model.TicketID
+       })

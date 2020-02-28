@@ -1,0 +1,164 @@
+﻿@model PagedList.IPagedList<EmpManager.Entities.Employee>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@using EmpManager.Entities;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Master1Layout.cshtml";
+}
+
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col">
+            <h3 class="page-title">Employee</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Employee</li>
+            </ul>
+        </div>
+        <div class="col-auto float-right ml-auto">
+            @Html.Partial("_CreateButtonPartial")
+            <div class="view-icons">
+                <a href="employees.html" class="grid-view btn btn-link active"><i class="fa fa-th"></i></a>
+                <a href="employees-list.html" class="list-view btn btn-link"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+<!-- Search Filter -->
+<div class="row filter-row">
+    <div class="col-sm-6 col-md-3">
+        <div class="form-group form-focus">
+            <input type="text" class="form-control floating">
+            <label class="focus-label">Employee ID</label>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="form-group form-focus">
+            <input type="text" class="form-control floating">
+            <label class="focus-label">Employee Name</label>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+        @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
+        {
+            <p>
+                Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                <input type="submit" value="Search" />
+            </p>
+        }
+    </div>
+</div>
+<!-- Search Filter -->
+
+<div class="row staff-grid-row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+            <div class="profile-widget">
+                <div class="profile-img">
+                    <a href="profile.html" class="avatar">
+                        @if (item.EmployeePhoto != null)
+                        {
+                            <img src="@Url.Content(item.EmployeePhoto)" height="80" width="80" alt="">
+                        }
+                        else
+                        {
+                            <img alt="" src="assets/img/profiles/avatar-05.jpg">
+                        }
+
+                    </a>
+                </div>
+                <div class="dropdown profile-action" id="myRow">
+                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-136px, 32px, 0px);">
+                        @Html.Partial("_EditButtonPartial",
+        new SmallButtonModel { Id = item.EmployeeID })
+                        @Html.Partial("_DetailsButtonPartial",
+      new SmallButtonModel { Id = item.EmployeeID })
+                        <a class="dropdown-item " href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                    </div>
+                </div>
+                <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">@item.Name</a></h4>
+                <div class="small text-muted">@item.Designation.Name</div>
+            </div>
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"
+                integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+                crossorigin="anonymous"></script>
+
+        <script>
+    $(document).ready(function () {
+        $('#delete_employee .delete-record').click(function (e) {
+            e.preventDefault();
+
+            var id = $(this).attr("Id");
+
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DeleteEmp")',
+                    data: { id: id },
+                    dataType: "json",
+                    success: function () {
+                        setTimeout(function () { location.reload(); }, 1000);
+                    },
+                    error: function () {
+                        alert("Error while deleting data");
+                    }
+                });
+
+        })
+    });
+
+        </script>
+
+
+
+
+
+
+
+
+        <div class="modal custom-modal fade" id="delete_employee" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h3>Delete Employee</h3>
+                            <p>Are you sure want to delete?</p>
+                        </div>
+                        <div class="modal-btn">
+                            <div class="row">
+                                <div class="col-6" id="delete_employee">
+                                    <a href="#" id="@item.EmployeeID" class="btn btn-primary delete-record continue-btn">Delete</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    
+    
+    </div>
+
+<dic class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+    </div>
+</dic>

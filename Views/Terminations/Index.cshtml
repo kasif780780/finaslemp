@@ -1,0 +1,79 @@
+﻿@model IEnumerable<EmpManager.Entities.Termination>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Income</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Termination</li>
+                </ul>
+            </div>
+            <div class="col-auto float-right ml-auto">
+                @Html.Partial("_CreateButtonPartial")
+                <div class="view-icons">
+                    <a href="employees.html" class="grid-view btn btn-link active"><i class="fa fa-th"></i></a>
+                    <a href="employees-list.html" class="list-view btn btn-link"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card mb-0">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Termination</h4>
+
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"></div></div><div class="row">
+                            <div class="col-sm-12">
+                                <table class="datatable table table-stripped mb-0 dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending"><strong>Employee Name</strong></th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"><strong>Termination Date	</strong></th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"><strong>Department	</strong></th>
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"><strong>Notice Date	</strong></th>
+
+
+                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending"><strong>Action</strong></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">@item.Employee.Name</td>
+                                            <td>@item.TerminationDate</td>
+                                            <td>@item.Department</td>
+                                            <td>@item.NoticeDate</td>
+                             
+
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.TerminationId }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.TerminationId }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.TerminationId })
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 30 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="4" tabindex="0" class="page-link">Next</a></li></ul></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

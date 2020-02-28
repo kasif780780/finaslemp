@@ -1,0 +1,801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E9B859E-496E-418C-903F-13E4C3EDBB86}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmpManager</RootNamespace>
+    <AssemblyName>EmpManager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Rotativa.Core.2.0.0\lib\net45\Rotativa.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Rotativa.MVC.2.0.3\lib\net45\Rotativa.MVC.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssetsController.cs" />
+    <Compile Include="Controllers\AttendancesController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\DesignationsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\ExpensesController.cs" />
+    <Compile Include="Controllers\HolidaysController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomesController.cs" />
+    <Compile Include="Controllers\LeadsController.cs" />
+    <Compile Include="Controllers\LeavesController.cs" />
+    <Compile Include="Controllers\LeaveTypesController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PayrollsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\TerminationsController.cs" />
+    <Compile Include="Controllers\ThemeSettingsController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Entities\Asset.cs" />
+    <Compile Include="Entities\Attendance.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\Designation.cs" />
+    <Compile Include="Entities\EditButtonModel.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Event.cs" />
+    <Compile Include="Entities\Expense.cs" />
+    <Compile Include="Entities\Holiday.cs" />
+    <Compile Include="Entities\Income.cs" />
+    <Compile Include="Entities\Lead.cs" />
+    <Compile Include="Entities\Leave.cs" />
+    <Compile Include="Entities\LeaveType.cs" />
+    <Compile Include="Entities\Payroll.cs" />
+    <Compile Include="Entities\Setting.cs" />
+    <Compile Include="Entities\SmallButtonModel.cs" />
+    <Compile Include="Entities\Termination.cs" />
+    <Compile Include="Entities\ThemeSetting.cs" />
+    <Compile Include="Entities\Ticket.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002231420047_initial.cs" />
+    <Compile Include="Migrations\202002231420047_initial.Designer.cs">
+      <DependentUpon>202002231420047_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241005482_event.cs" />
+    <Compile Include="Migrations\202002241005482_event.Designer.cs">
+      <DependentUpon>202002241005482_event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002250737356_changemodel.cs" />
+    <Compile Include="Migrations\202002250737356_changemodel.Designer.cs">
+      <DependentUpon>202002250737356_changemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271525025_empuser.cs" />
+    <Compile Include="Migrations\202002271525025_empuser.Designer.cs">
+      <DependentUpon>202002271525025_empuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppUsersRoles.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FosstechRoleManager.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Pager.cs" />
+    <Compile Include="ViewModels\RolesListingModels.cs" />
+    <Compile Include="ViewModels\UserListingModels.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FullCalander\packages\bootstrap\LICENSE.txt" />
+    <Content Include="FullCalander\packages\bootstrap\main.css" />
+    <Content Include="FullCalander\packages\bootstrap\main.esm.js" />
+    <Content Include="FullCalander\packages\bootstrap\main.js" />
+    <Content Include="FullCalander\packages\bootstrap\main.min.css" />
+    <Content Include="FullCalander\packages\bootstrap\main.min.js" />
+    <Content Include="FullCalander\packages\core\LICENSE.txt" />
+    <Content Include="FullCalander\packages\core\locales-all.js" />
+    <Content Include="FullCalander\packages\core\locales-all.min.js" />
+    <Content Include="FullCalander\packages\core\locales\af.js" />
+    <Content Include="FullCalander\packages\core\locales\ar-dz.js" />
+    <Content Include="FullCalander\packages\core\locales\ar-kw.js" />
+    <Content Include="FullCalander\packages\core\locales\ar-ly.js" />
+    <Content Include="FullCalander\packages\core\locales\ar-ma.js" />
+    <Content Include="FullCalander\packages\core\locales\ar-sa.js" />
+    <Content Include="FullCalander\packages\core\locales\ar-tn.js" />
+    <Content Include="FullCalander\packages\core\locales\ar.js" />
+    <Content Include="FullCalander\packages\core\locales\bg.js" />
+    <Content Include="FullCalander\packages\core\locales\bs.js" />
+    <Content Include="FullCalander\packages\core\locales\ca.js" />
+    <Content Include="FullCalander\packages\core\locales\cs.js" />
+    <Content Include="FullCalander\packages\core\locales\da.js" />
+    <Content Include="FullCalander\packages\core\locales\de.js" />
+    <Content Include="FullCalander\packages\core\locales\el.js" />
+    <Content Include="FullCalander\packages\core\locales\en-au.js" />
+    <Content Include="FullCalander\packages\core\locales\en-gb.js" />
+    <Content Include="FullCalander\packages\core\locales\en-nz.js" />
+    <Content Include="FullCalander\packages\core\locales\es-us.js" />
+    <Content Include="FullCalander\packages\core\locales\es.js" />
+    <Content Include="FullCalander\packages\core\locales\et.js" />
+    <Content Include="FullCalander\packages\core\locales\eu.js" />
+    <Content Include="FullCalander\packages\core\locales\fa.js" />
+    <Content Include="FullCalander\packages\core\locales\fi.js" />
+    <Content Include="FullCalander\packages\core\locales\fr-ca.js" />
+    <Content Include="FullCalander\packages\core\locales\fr-ch.js" />
+    <Content Include="FullCalander\packages\core\locales\fr.js" />
+    <Content Include="FullCalander\packages\core\locales\gl.js" />
+    <Content Include="FullCalander\packages\core\locales\he.js" />
+    <Content Include="FullCalander\packages\core\locales\hi.js" />
+    <Content Include="FullCalander\packages\core\locales\hr.js" />
+    <Content Include="FullCalander\packages\core\locales\hu.js" />
+    <Content Include="FullCalander\packages\core\locales\id.js" />
+    <Content Include="FullCalander\packages\core\locales\is.js" />
+    <Content Include="FullCalander\packages\core\locales\it.js" />
+    <Content Include="FullCalander\packages\core\locales\ja.js" />
+    <Content Include="FullCalander\packages\core\locales\ka.js" />
+    <Content Include="FullCalander\packages\core\locales\kk.js" />
+    <Content Include="FullCalander\packages\core\locales\ko.js" />
+    <Content Include="FullCalander\packages\core\locales\lb.js" />
+    <Content Include="FullCalander\packages\core\locales\lt.js" />
+    <Content Include="FullCalander\packages\core\locales\lv.js" />
+    <Content Include="FullCalander\packages\core\locales\mk.js" />
+    <Content Include="FullCalander\packages\core\locales\ms.js" />
+    <Content Include="FullCalander\packages\core\locales\nb.js" />
+    <Content Include="FullCalander\packages\core\locales\nl.js" />
+    <Content Include="FullCalander\packages\core\locales\nn.js" />
+    <Content Include="FullCalander\packages\core\locales\pl.js" />
+    <Content Include="FullCalander\packages\core\locales\pt-br.js" />
+    <Content Include="FullCalander\packages\core\locales\pt.js" />
+    <Content Include="FullCalander\packages\core\locales\ro.js" />
+    <Content Include="FullCalander\packages\core\locales\ru.js" />
+    <Content Include="FullCalander\packages\core\locales\sk.js" />
+    <Content Include="FullCalander\packages\core\locales\sl.js" />
+    <Content Include="FullCalander\packages\core\locales\sq.js" />
+    <Content Include="FullCalander\packages\core\locales\sr-cyrl.js" />
+    <Content Include="FullCalander\packages\core\locales\sr.js" />
+    <Content Include="FullCalander\packages\core\locales\sv.js" />
+    <Content Include="FullCalander\packages\core\locales\th.js" />
+    <Content Include="FullCalander\packages\core\locales\tr.js" />
+    <Content Include="FullCalander\packages\core\locales\uk.js" />
+    <Content Include="FullCalander\packages\core\locales\vi.js" />
+    <Content Include="FullCalander\packages\core\locales\zh-cn.js" />
+    <Content Include="FullCalander\packages\core\locales\zh-tw.js" />
+    <Content Include="FullCalander\packages\core\main.css" />
+    <Content Include="FullCalander\packages\core\main.esm.js" />
+    <Content Include="FullCalander\packages\core\main.js" />
+    <Content Include="FullCalander\packages\core\main.min.css" />
+    <Content Include="FullCalander\packages\core\main.min.js" />
+    <Content Include="FullCalander\packages\daygrid\LICENSE.txt" />
+    <Content Include="FullCalander\packages\daygrid\main.css" />
+    <Content Include="FullCalander\packages\daygrid\main.esm.js" />
+    <Content Include="FullCalander\packages\daygrid\main.js" />
+    <Content Include="FullCalander\packages\daygrid\main.min.css" />
+    <Content Include="FullCalander\packages\daygrid\main.min.js" />
+    <Content Include="FullCalander\packages\google-calendar\LICENSE.txt" />
+    <Content Include="FullCalander\packages\google-calendar\main.esm.js" />
+    <Content Include="FullCalander\packages\google-calendar\main.js" />
+    <Content Include="FullCalander\packages\google-calendar\main.min.js" />
+    <Content Include="FullCalander\packages\interaction\LICENSE.txt" />
+    <Content Include="FullCalander\packages\interaction\main.esm.js" />
+    <Content Include="FullCalander\packages\interaction\main.js" />
+    <Content Include="FullCalander\packages\interaction\main.min.js" />
+    <Content Include="FullCalander\packages\list\LICENSE.txt" />
+    <Content Include="FullCalander\packages\list\main.css" />
+    <Content Include="FullCalander\packages\list\main.esm.js" />
+    <Content Include="FullCalander\packages\list\main.js" />
+    <Content Include="FullCalander\packages\list\main.min.css" />
+    <Content Include="FullCalander\packages\list\main.min.js" />
+    <Content Include="FullCalander\packages\luxon\LICENSE.txt" />
+    <Content Include="FullCalander\packages\luxon\main.esm.js" />
+    <Content Include="FullCalander\packages\luxon\main.js" />
+    <Content Include="FullCalander\packages\luxon\main.min.js" />
+    <Content Include="FullCalander\packages\moment-timezone\LICENSE.txt" />
+    <Content Include="FullCalander\packages\moment-timezone\main.esm.js" />
+    <Content Include="FullCalander\packages\moment-timezone\main.js" />
+    <Content Include="FullCalander\packages\moment-timezone\main.min.js" />
+    <Content Include="FullCalander\packages\moment\LICENSE.txt" />
+    <Content Include="FullCalander\packages\moment\main.esm.js" />
+    <Content Include="FullCalander\packages\moment\main.js" />
+    <Content Include="FullCalander\packages\moment\main.min.js" />
+    <Content Include="FullCalander\packages\rrule\LICENSE.txt" />
+    <Content Include="FullCalander\packages\rrule\main.esm.js" />
+    <Content Include="FullCalander\packages\rrule\main.js" />
+    <Content Include="FullCalander\packages\rrule\main.min.js" />
+    <Content Include="FullCalander\packages\timegrid\LICENSE.txt" />
+    <Content Include="FullCalander\packages\timegrid\main.css" />
+    <Content Include="FullCalander\packages\timegrid\main.esm.js" />
+    <Content Include="FullCalander\packages\timegrid\main.js" />
+    <Content Include="FullCalander\packages\timegrid\main.min.css" />
+    <Content Include="FullCalander\packages\timegrid\main.min.js" />
+    <Content Include="FullCalander\vendor\rrule.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="FullCalander\packages\bootstrap\package.json" />
+    <Content Include="FullCalander\packages\bootstrap\README.md" />
+    <Content Include="FullCalander\packages\core\package.json" />
+    <Content Include="FullCalander\packages\core\README.md" />
+    <Content Include="FullCalander\packages\daygrid\package.json" />
+    <Content Include="FullCalander\packages\daygrid\README.md" />
+    <Content Include="FullCalander\packages\google-calendar\package.json" />
+    <Content Include="FullCalander\packages\google-calendar\README.md" />
+    <Content Include="FullCalander\packages\interaction\package.json" />
+    <Content Include="FullCalander\packages\interaction\README.md" />
+    <Content Include="FullCalander\packages\list\package.json" />
+    <Content Include="FullCalander\packages\list\README.md" />
+    <Content Include="FullCalander\packages\luxon\package.json" />
+    <Content Include="FullCalander\packages\luxon\README.md" />
+    <Content Include="FullCalander\packages\moment-timezone\package.json" />
+    <Content Include="FullCalander\packages\moment-timezone\README.md" />
+    <Content Include="FullCalander\packages\moment\package.json" />
+    <Content Include="FullCalander\packages\moment\README.md" />
+    <Content Include="FullCalander\packages\rrule\package.json" />
+    <Content Include="FullCalander\packages\rrule\README.md" />
+    <Content Include="FullCalander\packages\timegrid\package.json" />
+    <Content Include="FullCalander\packages\timegrid\README.md" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Theme\activities.html" />
+    <Content Include="Theme\assets\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Theme\assets\css\bootstrap.min.css" />
+    <Content Include="Theme\assets\css\font-awesome.min.css" />
+    <Content Include="Theme\assets\css\line-awesome.min.css" />
+    <Content Include="Theme\assets\css\select2.min.css" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\line-awesome.svg" />
+    <Content Include="Theme\assets\css\style.css" />
+    <Content Include="Theme\assets\img\attachment.png" />
+    <Content Include="Theme\assets\img\favicon.png" />
+    <Content Include="Theme\assets\img\flags\de.png" />
+    <Content Include="Theme\assets\img\flags\es.png" />
+    <Content Include="Theme\assets\img\flags\fr.png" />
+    <Content Include="Theme\assets\img\flags\us.png" />
+    <Content Include="Theme\assets\img\logo.png" />
+    <Content Include="Theme\assets\img\logo2.png" />
+    <Content Include="Theme\assets\img\placeholder.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-01.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-02.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-03.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-04.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-05.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-06.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-07.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-08.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-09.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-10.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-13.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-14.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-16.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-17.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-19.jpg" />
+    <Content Include="Theme\assets\img\profiles\avatar-21.jpg" />
+    <Content Include="Theme\assets\img\user.jpg" />
+    <Content Include="Theme\assets\img\video-call.jpg" />
+    <Content Include="Theme\assets\js\app.js" />
+    <Content Include="Theme\assets\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Theme\assets\js\bootstrap.min.js" />
+    <Content Include="Theme\assets\js\chart.js" />
+    <Content Include="Theme\assets\js\dropfiles.js" />
+    <Content Include="Theme\assets\js\html5shiv.min.js" />
+    <Content Include="Theme\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Theme\assets\js\jquery.slimscroll.min.js" />
+    <Content Include="Theme\assets\js\moment.min.js" />
+    <Content Include="Theme\assets\js\popper.min.js" />
+    <Content Include="Theme\assets\js\respond.min.js" />
+    <Content Include="Theme\assets\js\select2.min.js" />
+    <Content Include="Theme\assets\plugins\bootstrap-tagsinput\bootstrap-tagsinput.css" />
+    <Content Include="Theme\assets\plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="Theme\assets\plugins\morris\morris.css" />
+    <Content Include="Theme\assets\plugins\morris\morris.min.js" />
+    <Content Include="Theme\assets\plugins\raphael\raphael.min.js" />
+    <Content Include="Theme\attendance-employee.html" />
+    <Content Include="Theme\attendance.html" />
+    <Content Include="Theme\change-password.html" />
+    <Content Include="Theme\chat.html" />
+    <Content Include="Theme\client-profile.html" />
+    <Content Include="Theme\clients.html" />
+    <Content Include="Theme\create-invoice.html" />
+    <Content Include="Theme\departments.html" />
+    <Content Include="Theme\designations.html" />
+    <Content Include="Theme\edit-invoice.html" />
+    <Content Include="Theme\email-settings.html" />
+    <Content Include="Theme\employee-dashboard.html" />
+    <Content Include="Theme\employees.html" />
+    <Content Include="Theme\estimates.html" />
+    <Content Include="Theme\expense-reports.html" />
+    <Content Include="Theme\expenses.html" />
+    <Content Include="Theme\goal-tracking.html" />
+    <Content Include="Theme\goal-type.html" />
+    <Content Include="Theme\holidays.html" />
+    <Content Include="Theme\index.html" />
+    <Content Include="Theme\invoice-reports.html" />
+    <Content Include="Theme\invoice-settings.html" />
+    <Content Include="Theme\invoice-view.html" />
+    <Content Include="Theme\invoices.html" />
+    <Content Include="Theme\leads.html" />
+    <Content Include="Theme\leave-settings.html" />
+    <Content Include="Theme\leave-type.html" />
+    <Content Include="Theme\leaves-employee.html" />
+    <Content Include="Theme\leaves.html" />
+    <Content Include="Theme\localization.html" />
+    <Content Include="Theme\login.html" />
+    <Content Include="Theme\notifications-settings.html" />
+    <Content Include="Theme\outgoing-call.html" />
+    <Content Include="Theme\overtime.html" />
+    <Content Include="Theme\payments.html" />
+    <Content Include="Theme\payroll-items.html" />
+    <Content Include="Theme\policies.html" />
+    <Content Include="Theme\profile.html" />
+    <Content Include="Theme\projects.html" />
+    <Content Include="Theme\provident-fund.html" />
+    <Content Include="Theme\roles-permissions.html" />
+    <Content Include="Theme\salary-settings.html" />
+    <Content Include="Theme\salary-view.html" />
+    <Content Include="Theme\salary.html" />
+    <Content Include="Theme\settings.html" />
+    <Content Include="Theme\task-board.html" />
+    <Content Include="Theme\tasks.html" />
+    <Content Include="Theme\taxes.html" />
+    <Content Include="Theme\theme-settings.html" />
+    <Content Include="Theme\tickets.html" />
+    <Content Include="Theme\timesheet.html" />
+    <Content Include="Theme\users.html" />
+    <Content Include="Theme\video-call.html" />
+    <Content Include="Theme\voice-call.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_MasterLayout.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_SideBarPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\_PageHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_HeaderMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_MobileMenuPartial.cshtml" />
+    <Content Include="Views\Settings\Create.cshtml" />
+    <Content Include="Views\Settings\Delete.cshtml" />
+    <Content Include="Views\Settings\Details.cshtml" />
+    <Content Include="Views\Settings\Edit.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Assets\Create.cshtml" />
+    <Content Include="Views\Assets\Delete.cshtml" />
+    <Content Include="Views\Assets\Details.cshtml" />
+    <Content Include="Views\Assets\Edit.cshtml" />
+    <Content Include="Views\Assets\Index.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Departments\Create.cshtml" />
+    <Content Include="Views\Departments\Delete.cshtml" />
+    <Content Include="Views\Departments\Details.cshtml" />
+    <Content Include="Views\Departments\Edit.cshtml" />
+    <Content Include="Views\Departments\Index.cshtml" />
+    <Content Include="Views\Designations\Create.cshtml" />
+    <Content Include="Views\Designations\Delete.cshtml" />
+    <Content Include="Views\Designations\Details.cshtml" />
+    <Content Include="Views\Designations\Edit.cshtml" />
+    <Content Include="Views\Designations\Index.cshtml" />
+    <Content Include="Views\Leads\Create.cshtml" />
+    <Content Include="Views\Leads\Delete.cshtml" />
+    <Content Include="Views\Leads\Details.cshtml" />
+    <Content Include="Views\Leads\Edit.cshtml" />
+    <Content Include="Views\Leads\Index.cshtml" />
+    <Content Include="Views\LeaveTypes\Create.cshtml" />
+    <Content Include="Views\LeaveTypes\Delete.cshtml" />
+    <Content Include="Views\LeaveTypes\Details.cshtml" />
+    <Content Include="Views\LeaveTypes\Edit.cshtml" />
+    <Content Include="Views\LeaveTypes\Index.cshtml" />
+    <Content Include="Views\Terminations\Create.cshtml" />
+    <Content Include="Views\Terminations\Delete.cshtml" />
+    <Content Include="Views\Terminations\Details.cshtml" />
+    <Content Include="Views\Terminations\Edit.cshtml" />
+    <Content Include="Views\Terminations\Index.cshtml" />
+    <Content Include="Views\Leaves\Create.cshtml" />
+    <Content Include="Views\Leaves\Delete.cshtml" />
+    <Content Include="Views\Leaves\Details.cshtml" />
+    <Content Include="Views\Leaves\Edit.cshtml" />
+    <Content Include="Views\Leaves\Index.cshtml" />
+    <Content Include="Views\Attendances\Create.cshtml" />
+    <Content Include="Views\Attendances\Delete.cshtml" />
+    <Content Include="Views\Attendances\Details.cshtml" />
+    <Content Include="Views\Attendances\Edit.cshtml" />
+    <Content Include="Views\Attendances\Index.cshtml" />
+    <Content Include="Views\Shared\_TableButtonsPartial.cshtml" />
+    <Content Include="Views\Shared\_CreateButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_BackToListButtonPartial.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Shared\_SmallButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_EditButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_DeleteButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_DetailsButtonPartial.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\FileUpload.cshtml" />
+    <Content Include="Views\Holidays\Create.cshtml" />
+    <Content Include="Views\Holidays\Delete.cshtml" />
+    <Content Include="Views\Holidays\Details.cshtml" />
+    <Content Include="Views\Holidays\Edit.cshtml" />
+    <Content Include="Views\Holidays\Index.cshtml" />
+    <Content Include="Views\ThemeSettings\Create.cshtml" />
+    <Content Include="Views\ThemeSettings\Delete.cshtml" />
+    <Content Include="Views\ThemeSettings\Details.cshtml" />
+    <Content Include="Views\ThemeSettings\Edit.cshtml" />
+    <Content Include="Views\ThemeSettings\Index.cshtml" />
+    <Content Include="Views\Tickets\Create.cshtml" />
+    <Content Include="Views\Tickets\Delete.cshtml" />
+    <Content Include="Views\Tickets\Details.cshtml" />
+    <Content Include="Views\Tickets\Edit.cshtml" />
+    <Content Include="Views\Tickets\Index.cshtml" />
+    <Content Include="Views\Shared\_ProfileButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_CprofileButtonPartial.cshtml" />
+    <Content Include="Views\Expenses\Create.cshtml" />
+    <Content Include="Views\Expenses\Delete.cshtml" />
+    <Content Include="Views\Expenses\Details.cshtml" />
+    <Content Include="Views\Expenses\Edit.cshtml" />
+    <Content Include="Views\Expenses\Index.cshtml" />
+    <Content Include="Views\Incomes\Create.cshtml" />
+    <Content Include="Views\Incomes\Delete.cshtml" />
+    <Content Include="Views\Incomes\Details.cshtml" />
+    <Content Include="Views\Incomes\Edit.cshtml" />
+    <Content Include="Views\Incomes\Index.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\_Listing.cshtml" />
+    <Content Include="Views\Users\_Action.cshtml" />
+    <Content Include="Views\Users\_Delete.cshtml" />
+    <Content Include="Views\Users\_UserRoles.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Roles\_Action.cshtml" />
+    <Content Include="Views\Roles\_Delete.cshtml" />
+    <Content Include="Views\Roles\_Listing.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-Black.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-BlackItalic.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-Bold.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-BoldItalic.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-Book.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-BookItalic.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-Medium.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\CircularStd-MediumItalic.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\line-awesome.eot" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\line-awesome.ttf" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\line-awesome.woff" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\MaterialIcons-Regular.eot" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\MaterialIcons-Regular.ttf" />
+    <Content Include="Theme\assets\css\smarthr\purple\assets\fonts\MaterialIcons-Regular.woff" />
+    <Content Include="Views\Payrolls\Create.cshtml" />
+    <Content Include="Views\Payrolls\Delete.cshtml" />
+    <Content Include="Views\Payrolls\Details.cshtml" />
+    <Content Include="Views\Payrolls\Edit.cshtml" />
+    <Content Include="Views\Payrolls\Index.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Event\_EventPagePartial.cshtml" />
+    <Content Include="Views\Leaves\_LeavePartial.cshtml" />
+    <Content Include="Views\Shared\_Master1Layout.cshtml" />
+    <Content Include="Views\Home\AttandancePage.cshtml" />
+    <Content Include="Views\Attendances\All.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CompanyProfile\" />
+    <Folder Include="Images\" />
+    <Folder Include="UploadFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002231420047_initial.resx">
+      <DependentUpon>202002231420047_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241005482_event.resx">
+      <DependentUpon>202002241005482_event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002250737356_changemodel.resx">
+      <DependentUpon>202002250737356_changemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271525025_empuser.resx">
+      <DependentUpon>202002271525025_empuser.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="FullCalander\packages\bootstrap\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\core\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\daygrid\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\google-calendar\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\interaction\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\list\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\moment-timezone\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\rrule\main.d.ts" />
+    <TypeScriptCompile Include="FullCalander\packages\timegrid\main.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53883</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44354/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,67 @@
+﻿@model EmpManager.Entities.Termination
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Termination</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TerminationEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerminationEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TerminationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerminationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoticeDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoticeDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TerminationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

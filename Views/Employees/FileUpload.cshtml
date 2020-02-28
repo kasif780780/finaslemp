@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Index_Post";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script>
+    $(function () {
+        $('#btnUpload').click(function () {
+
+            if ($("#fileID" ).val() == '') {
+                alert( 'Please select a file.');
+                return false;
+            }
+
+            var formData = new FormData();
+            var file = document.getElementById( "fileID").files[0];
+            formData.append("MyFile", file);
+
+            $.ajax({
+                type: "POST",
+                url: '/Employees/FileUpload/',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function (response) {
+                    var myhtml = '';
+                    if (response.success) {
+
+                        myhtml = '<div class="alert alert-success">' + response.responseMessage + '</div>';
+                    }
+                    else {
+                        myhtml = '<div class="alert alert-danger">' + response.responseMessage + '</div>';
+                    }
+                    $( "#myAlert").html(myhtml);
+                    $( "#myAlert").fadeIn(500).delay(3000).fadeOut(500);
+                },
+                error: function (error) {
+                    $( "#myAlert").html( '<div class="alert alert-danger">' + error + '</div>');
+                }
+            });
+        });
+    });
+</script>
+
+<table class="table text-centered" style=" border-radius: 5px; width: 30%; margin: 0px auto; float: none;">
+    <thead>
+        <tr>
+            <th colspan="2"> File Upload Using Ajax jQuery in MVC </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.TextBox("fileID", "", new { type = "file" })
+                @* <input type="file" name="file_Upload" id="fileID"/> *@
+            </td>
+            <td>
+                <input type="submit" id="btnUpload" value="Upload File" class="btn btn-primary" />
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="myAlert">
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

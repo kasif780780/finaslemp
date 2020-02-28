@@ -1,0 +1,12 @@
+﻿@model EmpManager.ViewModels.UserActionModel
+
+<h2>Delete Employee</h2>
+@using (Html.BeginForm("delete", "Users", FormMethod.Post, new { id = "popupForm" }))
+
+{
+    @Html.HiddenFor(a => a.ID)
+   
+
+
+    <input type="submit" value="Submit" />
+}

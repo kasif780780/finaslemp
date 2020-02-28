@@ -1,0 +1,79 @@
+﻿@model EmpManager.Entities.SmallButtonModel
+@using EmpManager.Entities
+<td style="width:120px;">
+    <div class="btn-group" role="group">
+        @Html.Partial("_SmallButtonPartial",
+        new SmallButtonModel
+        {
+            Action = "Edit",
+            ButtonType = "btn-primary",
+            Glyph = "pencil",
+            Text = "Edit button",
+            Id = Model.Id,
+           AttendanceID = Model.AttendanceID,
+                   ClientID = Model.ClientID,
+                   DepartmentID = Model.DepartmentID,
+                   DesignationID = Model.DesignationID,
+                   EmployeeID = Model.EmployeeID,
+                   EmpSalaryID = Model.EmpSalaryID,
+                   HolidayID = Model.HolidayID,
+                   LeadID = Model.LeadID,
+                   LeaveID = Model.LeaveID,
+                   LeaveTypeID = Model.LeaveTypeID,
+                   PayrollID = Model.PayrollID,
+                   SettingID = Model.SettingID,
+                    TerminationId = Model.TerminationId,
+                    ThemeSettingID = Model.ThemeSettingID,
+                    TicketID = Model.TicketID
+        })
+
+        @Html.Partial("_SmallButtonPartial",
+        new SmallButtonModel
+        {
+            Action = "Delete",
+            ButtonType = "btn-danger",
+            Glyph = "trash",
+            Text = "Delete button",
+            Id = Model.Id,
+             AttendanceID = Model.AttendanceID,
+                   ClientID = Model.ClientID,
+                   DepartmentID = Model.DepartmentID,
+                   DesignationID = Model.DesignationID,
+                   EmployeeID = Model.EmployeeID,
+                   EmpSalaryID = Model.EmpSalaryID,
+                   HolidayID = Model.HolidayID,
+                   LeadID = Model.LeadID,
+                   LeaveID = Model.LeaveID,
+                   LeaveTypeID = Model.LeaveTypeID,
+                   PayrollID = Model.PayrollID,
+                   SettingID = Model.SettingID,
+                    TerminationId = Model.TerminationId,
+                    ThemeSettingID = Model.ThemeSettingID,
+                    TicketID = Model.TicketID
+        })
+        @Html.Partial("_SmallButtonPartial",
+        new SmallButtonModel
+        {
+            Action = "Details",
+            ButtonType = "btn-success",
+            Glyph = "eye",
+            Text = "Delete button",
+            Id = Model.Id,
+             AttendanceID = Model.AttendanceID,
+                   ClientID = Model.ClientID,
+                   DepartmentID = Model.DepartmentID,
+                   DesignationID = Model.DesignationID,
+                   EmployeeID = Model.EmployeeID,
+                   EmpSalaryID = Model.EmpSalaryID,
+                   HolidayID = Model.HolidayID,
+                   LeadID = Model.LeadID,
+                   LeaveID = Model.LeaveID,
+                   LeaveTypeID = Model.LeaveTypeID,
+                   PayrollID = Model.PayrollID,
+                   SettingID = Model.SettingID,
+                    TerminationId = Model.TerminationId,
+                    ThemeSettingID = Model.ThemeSettingID,
+                    TicketID = Model.TicketID
+        })
+    </div>
+</td>

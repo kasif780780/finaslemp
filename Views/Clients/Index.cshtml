@@ -1,0 +1,140 @@
+﻿@model IEnumerable<EmpManager.Entities.Client>
+@using EmpManager.Entities;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Master1Layout.cshtml";
+}
+
+
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col">
+            <h3 class="page-title">Clients</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Home/Index">Dashboard</a></li>
+                <li class="breadcrumb-item active">Client</li>
+            </ul>
+        </div>
+        <div class="col-auto float-right ml-auto">
+            @Html.Partial("_CreateButtonPartial")
+            <div class="view-icons">
+                <a href="employees.html" class="grid-view btn btn-link active"><i class="fa fa-th"></i></a>
+                <a href="employees-list.html" class="list-view btn btn-link"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+<!-- Search Filter -->
+<div class="row filter-row">
+    <div class="col-sm-6 col-md-3">
+        <div class="form-group form-focus">
+            <input type="text" class="form-control floating">
+            <label class="focus-label">Employee ID</label>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="form-group form-focus">
+            <input type="text" class="form-control floating">
+            <label class="focus-label">Employee Name</label>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+        <a href="#" class="btn btn-success btn-block"> Search </a>
+    </div>
+</div>
+<!-- Search Filter -->
+
+<div class="row staff-grid-row">
+    @foreach (var item in Model)
+    {
+        
+        <div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+            <div class="profile-widget">
+                <div class="profile-img">
+                    <a href="profile.html" class="avatar"><img src="assets/img/profiles/avatar-02.jpg" alt=""></a>
+                </div>
+                <div class="dropdown profile-action" id="myRow">
+                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-136px, 32px, 0px);">
+                        @Html.Partial("_EditButtonPartial",
+        new SmallButtonModel { Id = item.ClientID })
+                        @Html.Partial("_DetailsButtonPartial",
+      new SmallButtonModel { Id = item.ClientID })
+                        <a class="dropdown-item " href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                    </div>
+                </div>
+                <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="client-profile.html">@item.Company</a></h4>
+                <h5 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html">@item.FirstName @item.LastName</a></h5>
+                <div class="small text-muted">@item.Designation</div>
+                <a href="chat.html" class="btn btn-white btn-sm m-t-10">Message</a>
+
+                @Html.Partial("_ProfileButtonPartial",
+  new SmallButtonModel { Id = item.ClientID })
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"
+                integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+                crossorigin="anonymous"></script>
+
+        <script>
+    $(document).ready(function () {
+        $('#delete_employee .delete-record').click(function (e) {
+            e.preventDefault();
+
+            var id = $(this).attr("Id");
+
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DeleteClient")',
+                    data: { id: id },
+                    dataType: "json",
+                    success: function () {
+                        setTimeout(function () { location.reload(); }, 1000);
+                    },
+                    error: function () {
+                        alert("Error while deleting data");
+                    }
+                });
+
+        })
+    });
+
+        </script>
+
+
+
+
+
+
+
+
+        <div class="modal custom-modal fade" id="delete_employee" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h3>Delete Employee</h3>
+                            <p>Are you sure want to delete?</p>
+                        </div>
+                        <div class="modal-btn">
+                            <div class="row">
+                                <div class="col-6" id="delete_employee">
+                                    <a href="#" id="@item.ClientID" class="btn btn-primary delete-record continue-btn">Delete</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+

@@ -1,0 +1,83 @@
+﻿@model EmpManager.Entities.Client
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="page-title">Profile</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="card mb-0">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="profile-view">
+                    <div class="profile-img-wrap">
+                        <div class="profile-img">
+                            <a href="">
+                                <img src="assets/img/profiles/avatar-19.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="profile-basic">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="profile-info-left">
+                                    <h3 class="user-name m-t-0">@Model.Company</h3>
+                                    <h5 class="company-role m-t-0 mb-0">@Model.FirstName @Model.LastName</h5>
+                                    <small class="text-muted">@Model.Designation</small>
+                                    <div class="staff-id">Employee ID : CLT-0001</div>
+                                    <div class="staff-msg"><a href="https://api.whatsapp.com/send?phone=91(@Model.Phone)&amp;text=Pinnacle%20Hospital%20How%20May%20Help%20You!" target="_blank" class="btn btn-custom">Send Message</a></div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <ul class="personal-info">
+                                    <li>
+                                        <span class="title">Phone:</span>
+                                        <span class="text"><a href="tel:@Model.Phone">@Model.Phone</a></span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Email:</span>
+                                        <span class="text"><a href="mailto:@Model.Email"><span>@Model.Email</span></a></span>
+                                    </li>
+                                   
+                                    <li>
+                                        <span class="title">Address:</span>
+                                        <span class="text">5754 Airport Rd, Coosada, AL, 36020</span>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card mb-0">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-start">@Model.BankDeatils</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>

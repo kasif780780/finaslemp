@@ -1,0 +1,84 @@
+﻿@model IEnumerable<EmpManager.Entities.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Master1Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+<link href="
+https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col">
+            <h3 class="page-title">Ticket</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Home/Index">Dashboard</a></li>
+                <li class="breadcrumb-item active">Ticket</li>
+            </ul>
+        </div>
+        <div class="col-auto float-right ml-auto">
+            @Html.Partial("_CreateButtonPartial")
+            <div class="view-icons">
+                <a href="#" class="grid-view btn btn-link active"><i class="fa fa-th"></i></a>
+                <a href="#" class="list-view btn btn-link"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Ticket Subject</th>
+                        <th>Created Date</th>
+                        <th>Status</th>
+                        <th>priorty</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+
+                        <td class="sorting_1">@item.Employee.Name</td>
+                        <td>@item.TicketSubject</td>
+                        <td>@item.CreatedDate.ToLongDateString()</td>
+
+                        <td>@item.Status</td>
+                        <td>@item.priorty</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.TicketID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.TicketID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.TicketID })
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+

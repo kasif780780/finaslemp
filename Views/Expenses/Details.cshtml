@@ -1,0 +1,93 @@
+﻿@model EmpManager.Entities.Expense
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card mb-0">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Expanse</h4>
+
+                </div>
+                <div class="card-body">
+
+                    <div>
+                        
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Currency)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Currency)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Amount)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Amount)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Purpose)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Purpose)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DateOfSpend)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DateOfSpend)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Marchant)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Marchant)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Category)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Category)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Description)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ImagePath)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ImagePath)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.ExpenseId }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+</div>
+</div>
+</div>
+</div>

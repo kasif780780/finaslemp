@@ -1,0 +1,43 @@
+﻿@model EmpManager.Entities.ThemeSetting
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ThemeSetting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Favicon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Favicon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ThemeSettingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

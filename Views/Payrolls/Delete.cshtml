@@ -1,0 +1,136 @@
+﻿@model EmpManager.Entities.Payroll
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Payroll</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayrollDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayrollDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPFContribution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPFContribution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PFNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PFNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsESIContribution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsESIContribution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EsiNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EsiNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HRT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HRT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MCA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Incentive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Incentive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomeTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PF)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

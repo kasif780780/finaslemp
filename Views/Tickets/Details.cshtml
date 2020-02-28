@@ -1,0 +1,65 @@
+﻿@model EmpManager.Entities.Ticket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card mb-0">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Edit</h4>
+
+            </div>
+            <div class="card-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Employee.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Employee.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TicketSubject)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TicketSubject)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.CreatedDate)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.priorty)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.priorty)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.TicketID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+</div>
+</div>
+</div>
